@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int ROWS = 3;
+    const int COLS = 4;
+    double matrix[ROWS][COLS];
+    
+    cout << "Enter a " << ROWS << " by " << COLS << " matrix row by row:" << endl;
+    
+    // Input matrix elements
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            cin >> matrix[i][j];
+        }
+    }
+    
+    // Calculate and display sum of each column
+    for (int j = 0; j < COLS; j++) {
+        double columnSum = 0;
+        for (int i = 0; i < ROWS; i++) {
+            columnSum += matrix[i][j];
+        }
+        cout << "Sum of the elements at column " << j << " is " << columnSum << endl;
+    }
+    
+    return 0;
+}
