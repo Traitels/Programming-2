@@ -1,0 +1,70 @@
+
+#include <iostream>
+
+class Rectangle {
+private:
+    double width;
+    double height;
+
+public:
+    // No-arg constructor
+    Rectangle() {
+        width = 1.0;
+        height = 1.0;
+    }
+
+    // Constructor with parameters
+    Rectangle(double w, double h) {
+        width = w;
+        height = h;
+    }
+
+    // Accessor functions
+    double getWidth() const {
+        return width;
+    }
+
+    double getHeight() const {
+        return height;
+    }
+
+    // Mutator functions
+    void setWidth(double w) {
+        width = w;
+    }
+
+    void setHeight(double h) {
+        height = h;
+    }
+
+    // Calculate area
+    double getArea() const {
+        return width * height;
+    }
+
+    // Calculate perimeter
+    double getPerimeter() const {
+        return 2 * (width + height);
+    }
+};
+
+int main() {
+    // Create two Rectangle objects
+    Rectangle rect1(4.0, 40.0);
+    Rectangle rect2(3.5, 35.9);
+
+    // Display properties of first rectangle
+    std::cout << "Rectangle 1:\n";
+    std::cout << "Width: " << rect1.getWidth() << std::endl;
+    std::cout << "Height: " << rect1.getHeight() << std::endl;
+    std::cout << "Area: " << rect1.getArea() << std::endl;
+    std::cout << "Perimeter: " << rect1.getPerimeter() << std::endl;
+
+    std::cout << "\nRectangle 2:\n";
+    std::cout << "Width: " << rect2.getWidth() << std::endl;
+    std::cout << "Height: " << rect2.getHeight() << std::endl;
+    std::cout << "Area: " << rect2.getArea() << std::endl;
+    std::cout << "Perimeter: " << rect2.getPerimeter() << std::endl;
+
+    return 0;
+}
