@@ -1,0 +1,34 @@
+
+#include <iostream>
+#include <string>
+
+template <typename T>
+T findMax(T arr[], int size) {
+    if (size <= 0) {
+        throw std::invalid_argument("Array size must be positive");
+    }
+    
+    T max = arr[0];
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+int main() {
+    // Test with integers
+    int intArr[] = {5, 2, 9, 1, 7, 6};
+    std::cout << "Max integer: " << findMax(intArr, 6) << std::endl;
+
+    // Test with doubles
+    double doubleArr[] = {3.14, 2.718, 1.414, 9.999, 6.022};
+    std::cout << "Max double: " << findMax(doubleArr, 5) << std::endl;
+
+    // Test with strings
+    std::string strArr[] = {"apple", "banana", "orange", "mango", "zebra"};
+    std::cout << "Max string: " << findMax(strArr, 5) << std::endl;
+
+    return 0;
+}
