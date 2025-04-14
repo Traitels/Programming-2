@@ -1,0 +1,37 @@
+
+#include <iostream>
+#include <string>
+#include <stdexcept>
+#include <cctype>
+
+using namespace std;
+
+// Convert a hex string to decimal
+int hex2Dec(const string& hexString) {
+    int decimalValue = 0;
+    for (char ch : hexString) {
+        if (!isxdigit(ch)) {
+            throw invalid_argument("String is not a valid hex number");
+        }
+        decimalValue = decimalValue * 16 + 
+            (isdigit(ch) ? ch - '0' : toupper(ch) - 'A' + 10);
+    }
+    return decimalValue;
+}
+
+int main() {
+    try {
+        string hexString;
+        cout << "Enter a hex number: ";
+        cin >> hexString;
+
+        int decimalValue = hex2Dec(hexString);
+        cout << "The decimal value for hex number " << hexString 
+             << " is " << decimalValue << endl;
+    }
+    catch (const invalid_argument& ex) {
+        cout << "Error: " << ex.what() << endl;
+    }
+
+    return 0;
+}
